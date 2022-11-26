@@ -27,7 +27,8 @@
 > [jdk-8u171-linux-x64.tar.gz](https://repo.huaweicloud.com/java/jdk/8u171-b11/jdk-8u171-linux-x64.tar.gz)
 > 将下载好的 *hadoop-3.1.3.tar.gz* 和 *jdk-8u171-linux-x64.tar.gz* 两个文件放入当前项目的lib文件夹中
 > 
-> 如果使用其他版本的hadoop和JDK需要在Dockerfile进行修改，否则构建后的镜像会有问题
+> 如果使用其他版本的hadoop和JDK需要修改Dockerfile中的
+> **javaLocalPath**、**javaAfterName**、**hadoopLocalPath** 和 **hadoopAfterName** 的值
 
 ### 2. 使用Dockerfile构建镜像
 ```shell
