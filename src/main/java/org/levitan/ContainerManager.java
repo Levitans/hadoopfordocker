@@ -50,7 +50,7 @@ public class ContainerManager {
                     System.out.println("还未初始化！！！");
                     return;
                 }
-                if(getHosts().contains(masterHostname)) {
+                if (getHosts().contains(masterHostname)) {
                     System.out.println("当前系统中已经有"+masterHostname+"容器\n" +
                             "所以本次操作没有创建新的"+masterHostname+"容器");
                     return;
@@ -173,7 +173,8 @@ public class ContainerManager {
     }
 
     public static boolean isInit() {
-        String localHome = exec(new String[]{"/bin/bash", "-c", "cd "+home+";pwd"});
-        return new File(localHome).exists();
+        // 如果文件存在则返回1不存在返回0
+        String localHome = exec(new String[]{"/bin/bash", "-c", "ls "+home+" &>/dev/null && echo 1 || echo 0"});
+        return localHome.equals("1");
     }
 }

@@ -77,4 +77,4 @@ RUN chown -R hadoop $HADOOP_HOME && \
 # 指定Hadoop用户执行该镜像
 USER hadoop
 
-CMD /bin/bash
+ENTRYPOINT ["/bin/sh", "-c", "/usr/sbin/sshd -D"]
